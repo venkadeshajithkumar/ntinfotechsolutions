@@ -145,7 +145,8 @@ a:hover {
 
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px hsla(var(--h-primary), var(--s-primary), 50%, 0.3);
     color: var(--color-text-light);
 }
 
@@ -208,12 +209,30 @@ a:hover {
 
 /* Hero Section */
 .hero {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: radial-gradient(circle at top right, hsl(var(--h-primary), var(--s-primary), 98%), #ffffff);
     position: relative;
     overflow: hidden;
+    padding-top: var(--spacing-xxl);
+}
+
+/* Remove or hide any conflicting hero-bg if it exists elsewhere */
+.hero-bg,
+.hero-image-overlay {
+    display: none;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 120%;
+    background: radial-gradient(circle, hsla(var(--h-primary), var(--s-primary), 50%, 0.1), transparent 70%);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -312,6 +331,87 @@ a:hover {
     font-size: 2.5rem;
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
+    transition: var(--transition-normal);
+    height: 200px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    position: relative;
+}
+
+.service-icon-3d {
+    width: 300%;
+    /* Scale to show one icon from the 3x2 grid */
+    height: 180px;
+    /* Refined height */
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transition-normal);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.05));
+}
+
+.service-card:hover .service-icon img {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 15px 25px hsla(var(--h-primary), var(--s-primary), 50%, 0.2));
+}
+
+/* 3D Glow Effect Utility */
+.glow-3d {
+    position: relative;
+}
+
+.glow-3d::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, hsla(var(--h-primary), var(--s-primary), 50%, 0.2), transparent 70%);
+    transform: translate(-50%, -50%);
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.service-card:hover .glow-3d::after {
+    opacity: 1;
+}
+
+.service-card:hover .service-icon {
+    transform: translateY(-5px);
+}
+
+.floating-3d {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.tilt-element {
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
 }
 
 .service-card h3 {

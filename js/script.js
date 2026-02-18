@@ -107,12 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             let isValid = true;
             const inputs = contactForm.querySelectorAll('input[required], textarea[required], select[required]');
-            
+
             inputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
                     input.classList.add('error');
-                    
+
                     // Simple focus/blur to reset error state
                     input.addEventListener('input', () => {
                         input.classList.remove('error');
@@ -126,6 +126,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 3D Tilt Effect ---
+    const tiltElements = document.querySelectorAll('.tilt-element, .service-card');
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Refined sensitivity for 3D depth
+            const rotateX = (y - centerY) / 12;
+            const rotateY = (centerX - x) / 12;
+
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+            el.style.zIndex = "10";
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = '';
+            el.style.zIndex = "";
+        });
+    });
 
     // --- Active Link Detection ---
     const updateActiveLink = () => {
