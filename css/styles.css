@@ -1,18 +1,32 @@
 :root {
-    /* Colors - Corporate Light Theme */
+    /* Colors - Premium Corporate HSL Palette */
+    --h-primary: 210;
+    --s-primary: 100%;
+    --l-primary: 50%;
+
+    --color-primary: hsl(var(--h-primary), var(--s-primary), var(--l-primary));
+    --color-primary-dark: hsl(var(--h-primary), var(--s-primary), 40%);
+    --color-primary-light: hsl(var(--h-primary), var(--s-primary), 95%);
+
     --color-bg: #ffffff;
-    --color-bg-light: #f8f9fa;
-    --color-bg-dark: #212529;
+    --color-bg-alt: #f8fafc;
+    --color-bg-dark: #0f172a;
 
-    --color-primary: #007bff;
-    --color-primary-dark: #0056b3;
-
-    --color-text-main: #333333;
-    --color-text-muted: #6c757d;
+    --color-text-main: #1e293b;
+    --color-text-muted: #64748b;
     --color-text-light: #ffffff;
 
-    --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --glass-blur: blur(12px);
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
     /* Typography */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
@@ -23,16 +37,18 @@
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
-    --spacing-xxl: 6rem;
+    --spacing-xxl: 8rem;
 
     /* Transitions */
-    --transition-fast: all 0.2s ease;
-    --transition-normal: all 0.3s ease;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
 }
 
 /* Reset */
@@ -146,14 +162,22 @@ a:hover {
 
 /* Header */
 .header {
-    position: sticky;
-    /* Sticky instead of fixed for corporate feel */
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: var(--spacing-md) 0;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--spacing-sm) 0;
+    transition: var(--transition-normal);
+}
+
+.header.scrolled {
+    padding: var(--spacing-xs) 0;
+    box-shadow: var(--shadow-md);
 }
 
 .nav {
@@ -253,24 +277,35 @@ a:hover {
 /* Cards (Services, etc.) */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--spacing-lg);
 }
 
 .service-card {
-    background: #ffffff;
+    background: var(--color-bg);
     padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     transition: var(--transition-normal);
     text-align: left;
-    border-bottom: 3px solid transparent;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-bottom-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary-light);
+}
+
+.service-card img {
+    border-radius: var(--radius-md) !important;
+    transition: var(--transition-normal);
+}
+
+.service-card:hover img {
+    transform: scale(1.02);
 }
 
 .service-icon {
@@ -795,8 +830,42 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-.contact-card-simple:hover {
-    transform: translateY(-5px);
+/* Animations & Reveal on Scroll */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children reveal (optional utility) */
+.visible .stagger-child:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.visible .stagger-child:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.visible .stagger-child:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.visible .stagger-child:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* Contact form error styling */
+.contact-form input.error,
+.contact-form textarea.error,
+.contact-form select.error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
 }
 
 .icon-circle {
