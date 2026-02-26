@@ -765,19 +765,7 @@ a:hover {
     color: var(--color-text-muted);
 }
 
-/* Hero Section Background */
-.hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/home_hero_corporate_1771323977891.png');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-}
-
-.hero h1,
-.hero p {
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
+/* Hero Section Background - uses gradient from :root styles above */
 
 /* About Page Image Update */
 .about-image img {
