@@ -8,119 +8,232 @@
     <meta name="description"
         content="Have questions about our IT support, response times, or security? Find answers in our FAQ section or contact our expert team.">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || !savedTheme) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 
 <body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> +91 7010369591</span>
+                <span><i class="fa-solid fa-envelope"></i> admin@ntinfotechsolutions.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="logo">
                 <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
-                    alt="NT Infotech Solutions" style="height: 50px;">
+                    alt="NT Infotech Solutions">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="faq.html" class="active">FAQ</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="contact.html" class="btn btn-primary">Get a Quote</a>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-orb page-header-orb-1"></div>
+            <div class="page-header-orb page-header-orb-2"></div>
+            <div class="container">
+                <span class="section-tag" style="background:rgba(45,172,227,0.15);color:var(--color-accent);">Got
+                    Questions?</span>
+                <h1 class="page-title">Frequently Asked <span style="color:var(--color-primary)">Questions</span></h1>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span>FAQ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
         <section class="section bg-light">
             <div class="container">
-                <h1 class="section-title">Frequently Asked Questions</h1>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl);">
-                    Find answers to common questions about our services, support, and processes.
-                </p>
+                <div class="title-bar" style="margin-bottom:3rem;">
+                    <p class="section-subtitle" style="margin:0;">Find answers to the most common questions about our
+                        services, support processes, and technology.</p>
+                </div>
 
                 <div class="faq-container">
-                    <!-- FAQ Item 1 -->
-                    <div class="faq-item">
+                    <div class="faq-item reveal-on-scroll">
                         <button class="faq-question">
-                            What IT services do you offer?
+                            <span>What IT services do you offer?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
                             <p>We offer a comprehensive range of IT services including Hardware Support, Remote Support,
                                 Server Operations, Network Operations, Full Stack Development, and Security Operations.
-                                We act as your complete IT department.</p>
+                                We act as your complete IT department — whether on-site or remote.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ Item 2 -->
-                    <div class="faq-item">
+                    <div class="faq-item reveal-on-scroll">
                         <button class="faq-question">
-                            How fast is your response time for support?
+                            <span>How fast is your response time for support?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We pride ourselves on our "24x7 Support". For critical issues, we respond immediately.
+                            <p>We pride ourselves on our 24×7 Support. For critical issues, we respond immediately.
                                 For standard queries, we aim to respond within the hour. Our Remote Support service
-                                allows us to start troubleshooting instantly.</p>
+                                allows us to start troubleshooting instantly, without any on-site delay.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ Item 3 -->
-                    <div class="faq-item">
+                    <div class="faq-item reveal-on-scroll">
                         <button class="faq-question">
-                            Do you provide on-site support?
+                            <span>Do you provide on-site support?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
                             <p>Yes, for hardware repairs and complex infrastructure issues that cannot be resolved
                                 remotely, we deploy our certified technicians to your location to ensure your systems
-                                are back up and running smoothly.</p>
+                                are back up and running smoothly and efficiently.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ Item 4 -->
-                    <div class="faq-item">
+                    <div class="faq-item reveal-on-scroll">
                         <button class="faq-question">
-                            Can you help with custom software development?
+                            <span>Can you help with custom software development?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Absolutely. Our "Full Stack Development" team specializes in building custom web and
+                            <p>Absolutely. Our Full Stack Development team specializes in building custom web and
                                 mobile applications tailored to your specific business requirements using modern
                                 technologies like React, Node.js, and Python.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ Item 5 -->
-                    <div class="faq-item">
+                    <div class="faq-item reveal-on-scroll">
                         <button class="faq-question">
-                            How do you ensure data security?
+                            <span>How do you ensure data security?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Security is our top priority. Our "Security Operations" include 24/7 monitoring, threat
+                            <p>Security is our top priority. Our Security Operations include 24/7 monitoring, threat
                                 detection, regular vulnerability assessments, and strict compliance with industry
-                                standards to keep your data safe and secure.</p>
+                                standards to keep your data safe and your business protected.</p>
                         </div>
                     </div>
+
+                    <div class="faq-item reveal-on-scroll">
+                        <button class="faq-question">
+                            <span>What areas do you serve?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We are headquartered in Coimbatore, Tamil Nadu, and provide on-site support to the local
+                                and surrounding regions. Our remote support services, however, cover clients across all
+                                of India, allowing us to assist businesses nationwide.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal-on-scroll">
+                        <button class="faq-question">
+                            <span>How do I get started or request a quote?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Getting started is easy — simply visit our <a href="contact.html"
+                                    style="color:var(--color-primary); font-weight:600;">Contact page</a>, fill in your
+                                details and describe your needs, and one of our experts will reach out to you within an
+                                hour. You can also call us directly at <a href="tel:+918608319563"
+                                    style="color:var(--color-primary); font-weight:600;">+91 8608-319-563</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still have questions -->
+                <div
+                    style="text-align:center; margin-top:4rem; padding:3rem; background:white; border-radius:var(--radius-xl); box-shadow:var(--shadow-md);">
+                    <i class="fa-regular fa-circle-question"
+                        style="font-size:3rem; color:var(--color-primary); margin-bottom:1rem; display:block;"></i>
+                    <h3 style="margin-bottom:0.5rem;">Still have questions?</h3>
+                    <p style="max-width:400px; margin:0 auto 1.5rem;">Our team is always happy to help. Reach out and
+                        we'll get back to you promptly.</p>
+                    <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div style="text-align: center;">
-                <p>&copy; 2026 NT Infotech Solutions. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="faq.html">FAQ</a>
-                    <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
+                        alt="NT Infotech Logo" class="footer-logo">
+                    <p>We deliver comprehensive IT solutions tailored to your business needs. From robust infrastructure
+                        to custom software, our expert team is dedicated to your success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Address</h4>
+                    <p>NT Infotech Solutions<br>Second Floor No.34/1, K.s. Arunachalam Street,<br>Near Saibaba temple,
+                        K.K Pudur,<br>Coimbatore, Tamil Nadu 641038</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong style="color:white">Phone</strong><br><a href="tel:+918608319563">+91
+                                    8608-319-563</a></div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><strong style="color:white">Email</strong><br><a
+                                    href="mailto:contact@ntinfotechsolutions.com">contact@ntinfotechsolutions.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NT Infotech Solutions. All Rights Reserved.</p>
+                <div class="footer-bottom-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>

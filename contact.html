@@ -8,100 +8,214 @@
     <meta name="description"
         content="Get in touch with NT Infotech Solutions for a free consultation. Our expert team in Coimbatore is ready to help with your hardware and IT needs.">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || !savedTheme) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 
 <body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> +91 7010369591</span>
+                <span><i class="fa-solid fa-envelope"></i> admin@ntinfotechsolutions.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="logo">
                 <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
-                    alt="NT Infotech Solutions" style="height: 50px;">
+                    alt="NT Infotech Solutions">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="faq.html">FAQ</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="active btn btn-primary">Contact Us</a>
+                <a href="contact.html" class="active">Contact Us</a>
+                <a href="contact.html" class="btn btn-primary">Get a Quote</a>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-orb page-header-orb-1"></div>
+            <div class="page-header-orb page-header-orb-2"></div>
+            <div class="container">
+                <span class="section-tag" style="background:rgba(45,172,227,0.15);color:var(--color-accent);">Let's
+                    Talk</span>
+                <h1 class="page-title">Get In <span style="color:var(--color-primary)">Touch</span></h1>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span>Contact Us</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
         <section class="section contact-section-bg">
             <div class="container">
-                <div class="section-title-wrapper" style="text-align: center; margin-bottom: 3rem;">
-                    <h1 class="section-title" style="color: #333;">Contact Us</h1>
-                    <p style="color: #666; max-width: 600px; margin: 0 auto;">
-                        We are here to help. Reach out to us for any queries or support.
-                    </p>
-                </div>
-
+                <!-- Contact Cards -->
                 <div class="contact-grid-simple">
-                    <!-- Contact Cards -->
-                    <div class="contact-card-simple">
+                    <div class="contact-card-simple reveal-on-scroll">
                         <div class="icon-circle">📍</div>
                         <h3>Our Office</h3>
-                        <p>Coimbatore, Tamil Nadu</p>
+                        <p>Coimbatore, Tamil Nadu, India</p>
                     </div>
-
-                    <div class="contact-card-simple">
+                    <div class="contact-card-simple reveal-on-scroll">
                         <div class="icon-circle">📞</div>
                         <h3>Phone</h3>
-                        <p>+91 70103 69591<br>+91 96887 83440</p>
+                        <p>
+                            <a href="tel:+917010369591" style="color:var(--color-primary); font-weight:600;">+91 70103
+                                69591</a><br>
+                            <a href="tel:+919688783440" style="color:var(--color-primary); font-weight:600;">+91 96887
+                                83440</a>
+                        </p>
                     </div>
-
-                    <div class="contact-card-simple">
+                    <div class="contact-card-simple reveal-on-scroll">
                         <div class="icon-circle">✉️</div>
                         <h3>Email</h3>
-                        <p>admin@ntinfotechsolutions.com<br>info@ntinfotechsolutions.com</p>
+                        <p>
+                            <a href="mailto:admin@ntinfotechsolutions.com"
+                                style="color:var(--color-primary); font-weight:600;">admin@ntinfotechsolutions.com</a><br>
+                            <a href="mailto:info@ntinfotechsolutions.com"
+                                style="color:var(--color-primary); font-weight:600;">info@ntinfotechsolutions.com</a>
+                        </p>
                     </div>
                 </div>
 
-                <!-- Simple Form -->
-                <div class="contact-form-simple-wrapper">
-                    <form class="contact-form-simple">
+                <!-- Contact Form -->
+                <div class="contact-form-simple-wrapper reveal-on-scroll">
+                    <div class="title-bar" style="margin-bottom:2rem;">
+                        <span class="section-tag">Send a Message</span>
+                        <h2 class="section-title" style="font-size:1.8rem; margin-top:0.5rem;">We'd Love to <span>Hear
+                                From You</span></h2>
+                        <div class="title-divider"></div>
+                    </div>
+                    <form class="contact-form-simple" action="#" method="POST">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="e.g. Ajith Kumar" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a Service</option>
+                                    <option value="hardware">Hardware Support</option>
+                                    <option value="remote">Remote Support</option>
+                                    <option value="server">Server Operations</option>
+                                    <option value="network">Network Operations</option>
+                                    <option value="fullstack">Full Stack Development</option>
+                                    <option value="security">Security Operations</option>
+                                    <option value="other">Other / General Inquiry</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" id="subject" name="subject" placeholder="Brief subject of your inquiry"
+                                required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your Message"
-                                required></textarea>
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Tell us about your project or issue in detail..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="min-width:200px;">
+                            Send Message <i class="fa-solid fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div style="text-align: center;">
-                <p>&copy; 2026 NT Infotech Solutions. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
+                        alt="NT Infotech Logo" class="footer-logo">
+                    <p>We deliver comprehensive IT solutions tailored to your business needs. From robust infrastructure
+                        to custom software, our expert team is dedicated to your success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Address</h4>
+                    <p>NT Infotech Solutions<br>
+                        Coimbatore, Tamil Nadu, India</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong style="color:white">Phone</strong><br>
+                                <a href="tel:+917010369591">+91 7010369591</a><br>
+                                <a href="tel:+919688783440">+91 9688783440</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><strong style="color:white">Email</strong><br>
+                                <a href="mailto:admin@ntinfotechsolutions.com">admin@ntinfotechsolutions.com</a><br>
+                                <a href="mailto:info@ntinfotechsolutions.com">info@ntinfotechsolutions.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NT Infotech Solutions. All Rights Reserved.</p>
+                <div class="footer-bottom-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>

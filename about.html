@@ -8,71 +8,201 @@
     <meta name="description"
         content="Learn about NT Infotech Solutions, our dedication to quality IT services, and how we empower businesses through technology since 2024.">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || !savedTheme) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 
 <body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> +91 7010369591</span>
+                <span><i class="fa-solid fa-envelope"></i> admin@ntinfotechsolutions.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="logo">
                 <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
-                    alt="NT Infotech Solutions" style="height: 50px;">
+                    alt="NT Infotech Solutions">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
                 <a href="services.html">Services</a>
                 <a href="faq.html">FAQ</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="contact.html" class="btn btn-primary">Get a Quote</a>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section class="section">
-            <div class="container about-content">
-                <div class="about-text">
-                    <h2 class="section-title" style="text-align: left; font-size: 2rem;">Quality Work Through Dedication
-                    </h2>
-                    <p style="text-align: left;">Our Company is committed to delivering exceptional Infotech solutions
-                        that meet the highest standards of quality, reliability, and performance. This dedication
-                        ensures that clients receive tailored solutions that address their specific needs and goals.</p>
-                    <p style="text-align: left;">NT Infotech Solutions demonstrates its commitment to delivering
-                        exceptional solutions that drive business success. We empower businesses to succeed in a digital
-                        world.</p>
-
-                    <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--color-primary);">Why Choose Us</h3>
-                    <ul class="skills-list">
-                        <li>Safe & Secure</li>
-                        <li>24×7 Support</li>
-                        <li>Low Cost</li>
-                        <li>Expert Team</li>
-                        <li>Cutting-edge Tech</li>
-                        <li>ROI Focused</li>
-                    </ul>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-orb page-header-orb-1"></div>
+            <div class="page-header-orb page-header-orb-2"></div>
+            <div class="container">
+                <span class="section-tag" style="background:rgba(45,172,227,0.15);color:var(--color-accent);">Who We
+                    Are</span>
+                <h1 class="page-title">About <span style="color:var(--color-primary)">Us</span></h1>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span>About Us</span>
                 </div>
-                <div class="about-image">
-                    <img src="assets/images/about_us_corporate_1771262844252.png"
-                        alt="NT Infotech Solutions Team Meeting">
+            </div>
+        </div>
+
+        <!-- About Content -->
+        <section class="section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text reveal-on-scroll">
+                        <span class="section-tag">Our Story</span>
+                        <h2 class="section-title" style="text-align:left; font-size:2rem; margin-top:0.5rem;">Quality
+                            Work Through <span>Dedication</span></h2>
+                        <div class="title-divider" style="margin-left:0;"></div>
+                        <p style="margin-top:1.5rem;">Our Company is committed to delivering exceptional Infotech
+                            solutions
+                            that meet the highest standards of quality, reliability, and performance. This dedication
+                            ensures that clients receive tailored solutions that address their specific needs and goals.
+                        </p>
+                        <p>NT Infotech Solutions demonstrates its commitment to delivering
+                            exceptional solutions that drive business success. We empower businesses to succeed in a
+                            digital world — from hardware room to the cloud.</p>
+
+                        <h3 style="margin-top:2rem; margin-bottom:1rem; color:var(--color-primary); font-size:1.2rem;">
+                            Why Choose Us</h3>
+                        <ul class="skills-list">
+                            <li>Safe &amp; Secure</li>
+                            <li>24×7 Support</li>
+                            <li>Low Cost</li>
+                            <li>Expert Team</li>
+                            <li>Cutting-edge Tech</li>
+                            <li>ROI Focused</li>
+                        </ul>
+
+                        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                            <a href="services.html" class="btn btn-primary">View Our Services</a>
+                            <a href="contact.html" class="btn btn-outline-primary"
+                                style="color:var(--color-primary); border-color:var(--color-primary);">Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="about-image reveal-on-scroll">
+                        <img src="assets/images/about_us_corporate_1771262844252.png"
+                            alt="NT Infotech Solutions Team Meeting">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3 class="counter-value" data-target="2500" data-suffix="+">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter-value" data-target="3200" data-suffix="+">0</h3>
+                    <p>Finished Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter-value" data-target="15" data-suffix="+">0</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter-value" data-target="8640" data-suffix=" hrs">0</h3>
+                    <p>Support Time</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-inner reveal-on-scroll">
+                    <div>
+                        <h2>Ready to Work With Us?</h2>
+                        <p>Let's talk about how we can help your business grow.</p>
+                    </div>
+                    <a href="contact.html" class="btn">CONTACT US <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div style="text-align: center;">
-                <p>&copy; 2026 NT Infotech Solutions. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
+                        alt="NT Infotech Logo" class="footer-logo">
+                    <p>We deliver comprehensive IT solutions tailored to your business needs. From robust infrastructure
+                        to custom software, our expert team is dedicated to your success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Address</h4>
+                    <p>NT Infotech Solutions<br>Second Floor No.34/1, K.s. Arunachalam Street,<br>Near Saibaba temple,
+                        K.K Pudur,<br>Coimbatore, Tamil Nadu 641038</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong style="color:white">Phone</strong><br><a href="tel:+918608319563">+91
+                                    8608-319-563</a></div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><strong style="color:white">Email</strong><br><a
+                                    href="mailto:contact@ntinfotechsolutions.com">contact@ntinfotechsolutions.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NT Infotech Solutions. All Rights Reserved.</p>
+                <div class="footer-bottom-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>

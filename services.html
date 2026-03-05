@@ -8,57 +8,142 @@
     <meta name="description"
         content="Comprehensive IT services including hardware support, server operations, network design, and full stack development tailored to your business needs.">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-item:nth-child(even) .service-info {
+            direction: ltr;
+        }
+
+        .service-info h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .service-info h3 i {
+            font-size: 1.3rem;
+            margin-right: 0.5rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 992px) {
+
+            .service-item,
+            .service-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2rem;
+            }
+        }
+    </style>
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || !savedTheme) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 
 <body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> +91 7010369591</span>
+                <span><i class="fa-solid fa-envelope"></i> admin@ntinfotechsolutions.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="logo">
                 <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
-                    alt="NT Infotech Solutions" style="height: 50px;">
+                    alt="NT Infotech Solutions">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="about.html">About</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="faq.html">FAQ</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="contact.html" class="btn btn-primary">Get a Quote</a>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-orb page-header-orb-1"></div>
+            <div class="page-header-orb page-header-orb-2"></div>
+            <div class="container">
+                <span class="section-tag" style="background:rgba(45,172,227,0.15);color:var(--color-accent);">What We
+                    Offer</span>
+                <h1 class="page-title">Our <span style="color:var(--color-primary)">Services</span></h1>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span>Services</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services List -->
         <section class="section bg-light">
             <div class="container">
-                <h1 class="section-title">Our Services</h1>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl);">
-                    At NT Infotech Solutions, we offer a comprehensive suite of IT services designed to empower your
-                    business.
-                    From infrastructure management to custom software development, we have the expertise to drive your
-                    success.
-                </p>
+                <div class="title-bar" style="margin-bottom:2rem;">
+                    <p class="section-subtitle" style="margin:0;">We offer a comprehensive suite of IT services designed
+                        to empower your business — from infrastructure to custom software.</p>
+                </div>
 
-                <div class="services-list">
+                <div>
                     <!-- Hardware Support -->
-                    <div id="hardware" class="service-item">
+                    <div id="hardware" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_hardware_support_1771261379475.png" alt="Hardware Support">
                         </div>
                         <div class="service-info">
-                            <h3>Hardware Support</h3>
+                            <span class="section-tag">Hardware</span>
+                            <h3><i class="fa-solid fa-microchip"></i>Hardware Support</h3>
                             <p>We provide comprehensive hardware diagnostics, repair, and upgrade services for desktops,
                                 laptops, and servers. Our certified technicians ensure your physical infrastructure
                                 operates at peak performance, minimizing downtime and extending the lifecycle of your
                                 assets.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
-                                <li>component Repairs</li>
+                            <ul class="skills-list" style="margin-top:1rem;">
+                                <li>Component Repairs</li>
                                 <li>System Upgrades</li>
                                 <li>Preventive Maintenance</li>
                                 <li>Asset Management</li>
@@ -67,16 +152,17 @@
                     </div>
 
                     <!-- Remote Support -->
-                    <div id="remote" class="service-item">
+                    <div id="remote" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_remote_support_1771261396373.png" alt="Remote Support">
                         </div>
                         <div class="service-info">
-                            <h3>Remote Support</h3>
+                            <span class="section-tag">Remote</span>
+                            <h3><i class="fa-solid fa-satellite-dish"></i>Remote Support</h3>
                             <p>Experience immediate assistance with our secure remote support solutions. We resolve
                                 software issues, configuration errors, and user queries instantly without the need for
                                 an on-site visit, saving you time and money while keeping your workforce productive.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
+                            <ul class="skills-list" style="margin-top:1rem;">
                                 <li>Instant Troubleshooting</li>
                                 <li>Software Installation</li>
                                 <li>Email Configuration</li>
@@ -86,18 +172,19 @@
                     </div>
 
                     <!-- Server Operations -->
-                    <div id="server" class="service-item">
+                    <div id="server" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_server_ops_1771261431502.png" alt="Server Operations">
                         </div>
                         <div class="service-info">
-                            <h3>Server Operations</h3>
+                            <span class="section-tag">Server</span>
+                            <h3><i class="fa-solid fa-server"></i>Server Operations</h3>
                             <p>Our server management services cover everything from installation and configuration to
                                 24/7 monitoring and maintenance. We ensure your data is secure, backed up, and
                                 accessible whenever you need it, guaranteeing business continuity.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
+                            <ul class="skills-list" style="margin-top:1rem;">
                                 <li>Server Administration</li>
-                                <li>Data Backup & Recovery</li>
+                                <li>Data Backup &amp; Recovery</li>
                                 <li>Performance Tuning</li>
                                 <li>Virtualization</li>
                             </ul>
@@ -105,16 +192,17 @@
                     </div>
 
                     <!-- Network Operations -->
-                    <div id="network" class="service-item">
+                    <div id="network" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_network_ops_1771261447942.png" alt="Network Operations">
                         </div>
                         <div class="service-info">
-                            <h3>Network Operations</h3>
+                            <span class="section-tag">Network</span>
+                            <h3><i class="fa-solid fa-network-wired"></i>Network Operations</h3>
                             <p>We design, implement, and manage robust network infrastructures. From firewalls and
                                 routers to Wi-Fi optimization, we ensure seamless connectivity and security for your
                                 business operations, enabling smooth data flow and communication.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
+                            <ul class="skills-list" style="margin-top:1rem;">
                                 <li>Network Design</li>
                                 <li>Firewall Management</li>
                                 <li>VPN Solutions</li>
@@ -124,16 +212,17 @@
                     </div>
 
                     <!-- Full Stack Development -->
-                    <div id="fullstack" class="service-item">
+                    <div id="fullstack" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_full_stack_1771261463963.png" alt="Full Stack Development">
                         </div>
                         <div class="service-info">
-                            <h3>Full Stack Development</h3>
+                            <span class="section-tag">Development</span>
+                            <h3><i class="fa-solid fa-code"></i>Full Stack Development</h3>
                             <p>Transform your ideas into reality with our end-to-end software development services. We
                                 build scalable, responsive web and mobile applications using the latest technologies
                                 like React, Node.js, and Python, tailored to your specific business needs.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
+                            <ul class="skills-list" style="margin-top:1rem;">
                                 <li>Custom Web Apps</li>
                                 <li>Mobile App Development</li>
                                 <li>API Integration</li>
@@ -143,16 +232,17 @@
                     </div>
 
                     <!-- Security Operations -->
-                    <div id="security" class="service-item">
+                    <div id="security" class="service-item reveal-on-scroll">
                         <div class="service-img-wrapper">
                             <img src="assets/images/premium_security_ops_1771261296536.png" alt="Security Operations">
                         </div>
                         <div class="service-info">
-                            <h3>Security Operations</h3>
+                            <span class="section-tag">Security</span>
+                            <h3><i class="fa-solid fa-shield-halved"></i>Security Operations</h3>
                             <p>Protecting your digital assets with our advanced cybersecurity services. We offer threat
                                 assessment, penetration testing, and real-time monitoring to safeguard your business
                                 against evolving cyber threats and ensure compliance with industry standards.</p>
-                            <ul class="skills-list" style="margin-top: 1rem;">
+                            <ul class="skills-list" style="margin-top:1rem;">
                                 <li>Vulnerability Assessment</li>
                                 <li>Penetration Testing</li>
                                 <li>Security Audits</li>
@@ -163,16 +253,69 @@
                 </div>
             </div>
         </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-inner reveal-on-scroll">
+                    <div>
+                        <h2>Need a Custom IT Solution?</h2>
+                        <p>Tell us your challenge — we'll build the perfect solution.</p>
+                    </div>
+                    <a href="contact.html" class="btn">GET A FREE QUOTE <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div style="text-align: center;">
-                <p>&copy; 2026 NT Infotech Solutions. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://ntinfotechsolutions.com/wp-content/uploads/2025/01/cropped-logo-179x114.jpg"
+                        alt="NT Infotech Logo" class="footer-logo">
+                    <p>We deliver comprehensive IT solutions tailored to your business needs. From robust infrastructure
+                        to custom software, our expert team is dedicated to your success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Address</h4>
+                    <p>NT Infotech Solutions<br>Second Floor No.34/1, K.s. Arunachalam Street,<br>Near Saibaba temple,
+                        K.K Pudur,<br>Coimbatore, Tamil Nadu 641038</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong style="color:white">Phone</strong><br><a href="tel:+918608319563">+91
+                                    8608-319-563</a></div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><strong style="color:white">Email</strong><br><a
+                                    href="mailto:contact@ntinfotechsolutions.com">contact@ntinfotechsolutions.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NT Infotech Solutions. All Rights Reserved.</p>
+                <div class="footer-bottom-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>
